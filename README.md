@@ -1,20 +1,20 @@
 # VacationTracker
 
-To start your Phoenix server:
+## Slack Command:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+- /time_off: 
+	+ from YYYY-MM-DD or MM-DD to YYYY-MM-DD or MM-DD, reason: text
+	+ help
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Example:
+	+ /time_off from 2019-11-20 to 2019-11-21, reason: I got sick
+	+ /time_off help
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Dashboard
 
-## Learn more
+- Users login/out by Google Oauth
+- User role: employee, owner
+- View remaining annual leave
+- View leave history
+- For owner: ?
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
