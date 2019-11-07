@@ -14,9 +14,9 @@ defmodule VacationTrackerWeb.Router do
   end
 
   scope "/", VacationTrackerWeb do
-    pipe_through :browser
+    pipe_through :api
 
-    get "/", PageController, :index
+    post "/commands/time_off", CommandController, :time_off
   end
 
   # Other scopes may use custom stacks.
