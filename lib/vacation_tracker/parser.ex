@@ -1,6 +1,6 @@
 defmodule VacationTracker.Parser do
   def run("help") do
-    {:ok, "The message must exactly match: `from YYYY-MM-DD to YYYY-MM-DD, reason: text`"}
+    %{ok: "The message must exactly match: `from YYYY-MM-DD to YYYY-MM-DD, reason: text`"}
   end
 
   def run(message) do

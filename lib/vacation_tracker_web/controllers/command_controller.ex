@@ -1,9 +1,11 @@
 defmodule VacationTrackerWeb.CommandController do
   use VacationTrackerWeb, :controller
 
-  def time_off(conn, params) do
-    {status, message} = VacationTracker.Parser.run(params["text"])
+  alias VacationTracker.CommandHandler
 
-    json(conn, %{status => message})
+  def time_off(conn, params) do
+    result = CommandHandler.run({:time_off, params})
+
+    json(conn, result)
   end
 end

@@ -7,7 +7,7 @@ defmodule VacationTracker.ParserTest do
     test "help option" do
       response = Parser.run("help")
 
-      assert "The message must exactly match: `from YYYY-MM-DD to YYYY-MM-DD, reason: text`" = response
+      assert %{ok: "The message must exactly match: `from YYYY-MM-DD to YYYY-MM-DD, reason: text`"} = response
     end
 
     test "returns ok if message is valid" do

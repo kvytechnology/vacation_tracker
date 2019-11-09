@@ -16,3 +16,7 @@ config :vacation_tracker, VacationTrackerWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :vacation_tracker, :slack,
+  base_url: "http://localhost:8081",
+  bot_token: "valid_bot_token"
