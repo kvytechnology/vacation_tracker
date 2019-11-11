@@ -3,7 +3,7 @@ defmodule VacationTrackerWeb.AuthController do
 
   plug Ueberauth
 
-  alias VacationTracker.{Accounts, Auth}
+  alias VacationTracker.Accounts
 
   def index(conn, _params) do
     redirect(conn, to: Routes.auth_path(conn, :request, "google"))
