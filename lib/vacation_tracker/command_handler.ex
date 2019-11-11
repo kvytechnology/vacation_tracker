@@ -51,7 +51,7 @@ defmodule VacationTracker.CommandHandler do
     case Accounts.find_user_by(:slack_id, params["user_id"]) do
       nil ->
         with {:ok, data} <- Slack.get_user_info(params["user_id"]),
-             {:ok, _user} <- Accounts.create_user(
+             {:ok, _user} <- Accounts.create_or_update_user(
                user_attrs(data, params["token"])
              ) do
           :ok

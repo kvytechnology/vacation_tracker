@@ -13,6 +13,26 @@ defmodule VacationTrackerWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :browser_auth do
+    plug VacationTracker.Auth
+  end
+
+  scope "/", VacationTrackerWeb do
+    pipe_through :browser
+    pipe_through :browser_auth
+
+    get "/dashboard", DashboardController, :index
+  end
+
+  scope "/", VacationTrackerWeb do
+    pipe_through :browser
+
+    get "/sign_in", AuthController, :index
+    get "/auth/:provider", AuthController, :request
+    get "/auth/:provider/callback", AuthController, :callback
+    post "/auth/:provider/callback", AuthController, :callback
+  end
+
   scope "/", VacationTrackerWeb do
     pipe_through :api
 

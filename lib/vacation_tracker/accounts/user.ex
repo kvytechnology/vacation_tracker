@@ -17,10 +17,30 @@ defmodule VacationTracker.Accounts.User do
     Repo.get_by(__MODULE__, [{column, value}])
   end
 
-  def create(attrs) do
+  def create_or_update(attrs) do
+    case find_by(:email, attrs[:email]) do
+      nil -> create(attrs)
+
+      user -> update(user, attrs)
+    end
+  end
+
+  def create(attrs, options \\ [])
+
+  def create(%{email: email}, source: :google) do
+    Repo.insert(%__MODULE__{email: email})
+  end
+
+  def create(attrs, _options) do
     %__MODULE__{}
     |> changeset(attrs)
     |> Repo.insert()
+  end
+
+  def update(user, attrs) do
+    user
+    |> changeset(attrs)
+    |> Repo.update()
   end
 
   @doc false
